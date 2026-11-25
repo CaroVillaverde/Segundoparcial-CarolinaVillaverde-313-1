@@ -1,0 +1,44 @@
+{
+    "67589092": {
+        "Nombre": "Carolina",
+        "Apellido": "Juarez",
+        "Edad": 9,
+        "Nota": 10.0
+    },
+    "45678987": {
+        "Nombre": "Francisco",
+        "Apellido": "Canal",
+        "Edad": 45,
+        "Nota": 4.5
+    },
+    "45678345": {
+        "Nombre": "Carolina",
+        "Apellido": "Velez",
+        "Edad": 6,
+        "Nota": 10.0
+    },
+    "46789099": {
+        "Nombre": "Carlos",
+        "Apellido": "Sosa",
+        "Edad": 27,
+        "Nota": 10.0
+    },
+    "45678945": {
+        "Nombre": "Alan",
+        "Apellido": "Corletta",
+        "Edad": 27,
+        "Nota": 7.0
+    },
+    "45675431": {
+        "Nombre": "Viviana",
+        "Apellido": "Lopez",
+        "Edad": 19,
+        "Nota": 2.5
+    },
+    "89765459": {
+        "Nombre": "tomas",
+        "Apellido": "Milan",
+        "Edad": 17,
+        "Nota": 6.5
+    }
+}
