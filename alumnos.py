@@ -1,7 +1,3 @@
-# Diccionario de diccionarios, tiene una clave unica (DNI) 
-# el cual no vamos a modificar, pero sus datos internos son mutables
-#por lo tanto podemos hacer modificaciones
-
 
 def buscar_dni(alumno, dni_buscado):
     """Busca un DNI"""
@@ -13,15 +9,10 @@ def buscar_dni(alumno, dni_buscado):
     return None
 
 
-def registrar_alumno(alumno, dni, nombre, apellido, edad, nota):
-    """Agrega alumnos al diccionario principal (alumno)"""
-
-    alumno[dni] = {
-        "Nombre": nombre,
-        "Apellido": apellido,
-        "Edad": edad,
-        "Nota": nota
-    }
+def eliminar_alumno(alumno, dni):
+    """Elimina un alumno registrado mediante su DNI."""
+    
+    del alumno[dni]
 
 
 def existen_alumnos(alumno):
@@ -39,3 +30,13 @@ def modificar_alumnos(alumno, dni, campo, nuevo_valor):
     
     alumno[dni][campo] = nuevo_valor
 
+
+def registrar_alumno(alumno, dni, nombre, apellido, edad, nota):
+    """Agrega alumnos al diccionario principal (alumno)"""
+
+    alumno[dni] = {
+        "Nombre": nombre,
+        "Apellido": apellido,
+        "Edad": edad,
+        "Nota": nota
+    }

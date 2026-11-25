@@ -2,7 +2,7 @@
 import alumnos
 import validaciones
 import archivos
-
+import estadisticas
 
 # Inicializar el diccionario
 alumno = archivos.cargar_alumno()
@@ -187,11 +187,67 @@ else:
             print("Nota modificada correctamente.")
 
         case "0":
-            pass  
+            print("Has ingresado 0. Modificación cancelada.")  
         
 
+
+print("========== ELIMINAR ALUMNO ==========")
+
+eliminar_dni = input("Ingrese el DNI del alumno que desea eliminar: ")
+
+while not validaciones.validar_formato_dni(eliminar_dni):
+    print("Error. El DNI debe contener 8 dígitos.")
+    eliminar_dni = input("Ingrese nuevamente el DNI: ")
+    
+dni_encontrado = alumnos.buscar_dni(alumno, eliminar_dni)
+
+if dni_encontrado == None:
+    print("No se encuentra alumno registrado con el DNI ingresado.")
+else:
+    alumnos.eliminar_alumno(alumno, dni_encontrado)
+
+    archivos.guardar_alumno(alumno)
+
+    print("Alumno eliminado correctamente.")
+
+
+
+print("========== ESTADÍSTICAS ==========")
+
+total = estadisticas.calcular_total_alumnos(alumno)
+print("Cantidad total de alumnos:", total)
+
+
+promedio = estadisticas.calcular_promedio_general(alumno)
+
+if promedio == None:
+    print("No existen alumnos para calcular el promedio.")
+else:
+    print("Promedio general de notas:", promedio)
+
+
+mayor_nota = estadisticas.calcular_mayor_nota(alumno)
+
+if mayor_nota == None:
+    print("No existen alumnos para calcular la nota máxima.")
+else:
+    print("La nota máxima es:", mayor_nota)
+
+
+
+aprobados = estadisticas.calcular_cantidad_aprobados(alumno)
+print("La cantidad de aprobados es: ", aprobados)
+
+desaprobados = estadisticas.calcular_cantidad_desaprobados(alumno)
+print("La cantidad de desaprobados es: ", desaprobados) 
+  
+  
+
+  
+    
+    
 """
-def iniciar_menu():
+def iniciar_menu(alumno):
     
     opcion = ""
     
@@ -212,61 +268,8 @@ def iniciar_menu():
         
         match opcion:
             case "1":
-                #Carga de libros
-                #Solicitar cantidad para determinar valor de listas
-                cantidad_alumnos = validaciones.validar_cantidad()
-                    
-                #Inicializacion de las listas paralelas
-                nombres = [""] * cantidad_alumnos #str
-        
-                for i in range(cantidad_alumnos):
-                    nombres[i] = input("Ingrese el nombre del alumno/a: ")
-            
-                    while not validaciones.validar_nombre(nombres[i]): #Validar que sea con más de 5 caracteres. No números, no espacio.
-                        print("Nombre inválido, debe tener al menos 5 caracteres.")
-                        nombres[i] = input("Ingrese el nombre del alumno: ")
-            
-            
-                    parcial_1[i] = int(input("Ingrese la nota del parcial 1 (1 a 10): ")) #Ingresa nota  parcial 1(int)
-            
-                    while not validaciones.validar_nota(parcial_1[i]): #Llamar a la funcion para validar que la nota esté dentro del 1 al 10
-                        parcial_1[i] = int(input("Número inválido. Ingrese un número del 1 al 10 para la primer nota: "))
-            
-            
-                    parcial_2[i] = int(input("Ingrese la nota del parcial 2 (1 a 10): ")) #Ingresa nota parcial 2(int)
-            
-                    while not validaciones.validar_nota(parcial_2[i]): #Llamar a la funcion para validar que la nota esté dentro del 1 al 10
-                        parcial_2[i] = int(input("Número inválido. Ingrese un número del 1 al 10 para la segunda nota: "))
-        
-                        
-                    #Calcular promedio de cada alumno
-                    promedio[i] = procesamiento.calcular_promedio(parcial_1[i], parcial_2[i])
-                    
-                print("Alumnos cargados con éxito.")
-                alumnos_cargados = True
-                    
-                    
-            case "2":
+                #Registrar alumno
                 
-            
-            case "3": #
-                
-                
-        
-            case "4": #Ranking
-                
-            case "5": #Buscar alumno
-                
-        
-            case "6": #Juegos con un nombre
-                
-    
-            case "0":
-                print("Ha seleccionado la opción SALIR. Hasta pronto.")
-
-            case _:
-                print("Opción no válida. Ingrese una opción de 1 al 6 (o 0 para SALIR): ")
-
 
 iniciar_menu()
 """
